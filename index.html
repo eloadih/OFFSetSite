@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ff4b18">
+  <meta name="description" content="OFFSET — produtora audiovisual. Vídeos, campanhas e histórias com personalidade.">
+  <title>OFFSET — Produtora Audiovisual</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="hero" id="inicio">
+    <a class="brand" href="#inicio" aria-label="OFFSET, início">
+      <img class="brand-image" src="assets/offset-logo.png" alt="OFFSET — Produtora Audiovisual">
+    </a>
+    <a class="hero-down" href="#sobre" aria-label="Ir para sobre"><span>⬇</span></a>
+  </header>
+
+  <main>
+    <section class="about section-shell" id="sobre">
+      <div class="about-copy">
+        <div class="section-kicker"><span>A OFFSET</span><i aria-hidden="true"></i></div>
+        <p>Idealizada por Pedro Bezerra, a OFFSET é uma produtora audiovisual especializada na elaboração de conteúdos estratégicos, prezando sempre pela excelência, eficácia e propósito de cada projeto.</p>
+        <p>Nossa missão é garantir que todo material entregue não só atenda, mas supere as expectativas, promovendo uma alta conversão e engajamento.</p>
+        <p>Sabemos que cada projeto possui necessidades e especificidades únicas. Por isso, nossa equipe oferece um atendimento personalizado e humanizado, adaptando nossas estratégias e produções às demandas específicas do objetivo a ser alcançado.</p>
+        <h1 class="this-is">THIS IS<br>OFFSET</h1>
+      </div>
+      <div class="about-photo" role="img" aria-label="Fotografia de bastidores ou de um evento produzido pela OFFSET">
+        <div class="photo-note">CRIAMOS. CAPTAMOS. CONTAMOS.</div>
+      </div>
+    </section>
+
+    <section class="portfolio section-shell" id="portfolio">
+      <div class="section-kicker"><span>PORTFÓLIO</span><i aria-hidden="true"></i></div>
+      <div class="portfolio-heading">
+        <h2>VIDEOCLIPES</h2>
+        <p>Trabalhos selecionados — clique para assistir.</p>
+      </div>
+      <div class="video-grid" id="video-grid">
+        <!-- Os cartões e links de vídeo são configurados no arquivo script.js -->
+      </div>
+      <div class="portfolio-footer">
+        <a class="more-link" href="https://drive.google.com/drive/folders/1BnL66Zs1KAJcxaXP5Ks3rWvKlucLBj8v?usp=sharing" target="_blank" rel="noopener noreferrer">CONFIRA MAIS DO PORTFÓLIO<span aria-hidden="true"></span></a>
+      </div>
+    </section>
+
+    <section class="contact section-shell" id="contato">
+      <div>
+        <div class="section-kicker"><span>VAMOS CRIAR?</span><i aria-hidden="true"></i></div>
+        <h2>SEU PRÓXIMO<br>PROJETO COMEÇA AQUI.</h2>
+      </div>
+      <a class="contact-link" href="https://wa.me/55SEUNUMERO" target="_blank" rel="noopener noreferrer">SOLICITE SEU ORÇAMENTO</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="footer-logo" href="#inicio">OFFSET<span>.</span></a>
+    <p>PRODUTORA AUDIOVISUAL</p>
+    <a href="#inicio" class="back-top">VOLTAR AO TOPO ↑</a>
+    <small>© <span id="year"></span> OFFSET. TODOS OS DIREITOS RESERVADOS.</small>
+  </footer>
+
+  <dialog class="video-dialog" id="video-dialog" aria-label="Reprodutor de vídeo">
+    <button class="dialog-close" id="dialog-close" aria-label="Fechar vídeo">×</button>
+    <div class="video-frame" id="video-frame"></div>
+    <p class="dialog-title" id="dialog-title"></p>
+  </dialog>
+</body>
+</html>

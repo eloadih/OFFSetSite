@@ -1,0 +1,106 @@
+/* FONTES PERSONALIZADAS LOCAIS
+   Coloque os arquivos de fonte na pasta /fonts usando os nomes indicados no README.
+   WOFF2 é recomendado para a web. As fontes não são carregadas de serviços externos. */
+@font-face { font-family: "OFFSET-Texto"; src: url("fonts/texto.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "OFFSET-Titulo"; src: url("fonts/titulo.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "OFFSET-Impacto"; src: url("fonts/impacto.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "OFFSET-Detalhe"; src: url("fonts/detalhe.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "OFFSET-Botao"; src: url("fonts/titulo.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "OFFSET-Rodape"; src: url("fonts/rodape.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+
+:root {
+  --orange: #ff4b18;
+  --orange-dark: #8f2a0d;
+  --black: #050505;
+  --white: #f8f6f2;
+  --muted: #b8b4b1;
+  --page-pad: clamp(22px, 5.2vw, 76px);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 22px; }
+body { margin: 0; background: var(--black); color: var(--white); font-family: "OFFSET-Texto", Arial, sans-serif; }
+a { color: inherit; }
+.hero {
+  min-height: min(100svh, 820px); height: 71vw; max-height: 900px;
+  background: var(--black); display: grid; place-items: center; position: relative;
+}
+.brand { display: block; width: clamp(190px, 100vw, 330px); transform: translateY(-1%); }
+.brand-image { display: block; width: 100%; height: auto; }
+
+.section-shell { padding-left: var(--page-pad); padding-right: var(--page-pad); }
+.about { min-height: 620px; padding-top: 50px; padding-bottom: 48px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, .72fr); gap: clamp(22px, 4vw, 60px); position: relative; overflow: hidden; }
+.about-copy { position: relative; z-index: 1; max-width: 690px; }
+.section-kicker { display: flex; align-items: center; gap: 4px; font-size: clamp(16px, 2.3vw, 22px); font-weight: 800; font-style: italic; text-transform: uppercase; white-space: nowrap; }
+.section-kicker i { display: block; height: 12px; flex: 1; min-width: 50px; background: repeating-linear-gradient(105deg, var(--orange) 0 2px, transparent 2px 5px); opacity: .95; }
+.about p { font-size: clamp(11px, 1.15vw, 14px); line-height: 1.55; font-weight: 500; text-transform: uppercase; max-width: 690px; margin: 26px 0 0; }
+.about p + p { margin-top: 17px; }
+.about p strong { color: var(--orange); text-decoration: underline; }
+.about-photo { min-height: 440px; align-self: stretch; margin: -50px calc(var(--page-pad) * -1) -48px 0; position: relative; background: linear-gradient(90deg, var(--black) 0%, rgba(5,5,5,.35) 25%, rgba(5,5,5,.1) 100%), linear-gradient(0deg, rgba(5,5,5,.55), rgba(5,5,5,.05)), url("assets/bastidores.jpg") center / cover no-repeat, #21100a; }
+.about-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(255,75,24,.18), transparent 65%); mix-blend-mode: screen; pointer-events: none; }
+.photo-note { position: absolute; bottom: 28px; right: 24px; z-index: 1; font-size: 9px; letter-spacing: .2em; font-weight: 700; opacity: .7; }
+.this-is { color: var(--white); font-size: clamp(48px, 8.5vw, 20px); line-height: .9; letter-spacing: .02em; font-weight: 900; font-style: italic; margin: 55px 0 0; }
+.portfolio { padding-top: 20px; padding-bottom: 90px; }
+.portfolio-heading { position: relative; min-height: 33px; display: flex; justify-content: flex-end; align-items: end; margin-top: 2px; }
+.portfolio-heading h2 { margin: 0; color: var(--orange); font-size: clamp(30px, 5.3vw, 40px); line-height: .85; letter-spacing: -.005em; font-weight: 900; font-style: italic; }
+.portfolio-heading p { display: none; }
+.video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.video-card { border: 0; padding: 0; min-height: 170px; aspect-ratio: 1.65 / 1; background: var(--orange); color: #FAFAFA; cursor: pointer; position: relative; overflow: hidden; display: grid; place-items: center; text-align: left; text-decoration: none; }
+.video-card::before { content: ""; position: absolute; inset: 0; background: var(--card-image, none) center / cover no-repeat; transition: transform .35s ease, opacity .25s ease; opacity: .88; }
+.video-card:hover::before, .video-card:focus-visible::before { transform: scale(1.04); opacity: 1; }
+.play-icon { position: relative; z-index: 1; width: 42px; height: 42px; border: 3px solid currentColor; border-radius: 50%; display: grid; place-items: center; padding-left: 3px; background: rgba(255,75,24,); }
+.play-icon svg { width: 16px; height: 16px; fill: currentColor; }
+.video-name { position: absolute; z-index: 1; left: 15px; right: 15px; bottom: 13px; font-size: 12px; font-weight: 800; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,.55); }
+.portfolio-footer { display: flex; justify-content: center; padding-top: 38px; }
+.more-link, .contact-link { text-decoration: none; background: var(--orange-dark); padding: 12px 18px; border-radius: 8px; font-size: 11px; font-weight: 700; transition: background .2s ease, transform .2s ease; }
+.more-link:hover, .contact-link:hover { background: var(--orange); color: #000; transform: translateY(-2px); }
+.contact { border-top: 1px solid #242424; padding-top: 50px; padding-bottom: 58px; display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+.contact h2 { font-size: clamp(32px, 6vw, 40px); line-height: .9; letter-spacing: .02em; margin: 28px 0 0; font-weight: 900; font-style: italic; }
+.contact-link { flex-shrink: 0; }
+.footer { padding: 25px var(--page-pad) 20px; border-top: 1px solid #242424; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: center; }
+.footer-logo { font-size: 30px; font-weight: 900; letter-spacing: -.08em; text-decoration: none; }
+.footer-logo span { color: var(--orange); }
+.footer p, .back-top, .footer small { font-size: 9px; letter-spacing: .13em; font-weight: 700; }
+.footer p { text-align: right; }
+.back-top { text-decoration: none; }
+.footer small { color: var(--muted); text-align: right; }
+@media (min-width: 1200px) { .about, .portfolio, .contact, .footer { padding-left: max(var(--page-pad), calc((100vw - 1200px)/2)); padding-right: max(var(--page-pad), calc((100vw - 1200px)/2)); } }
+@media (max-width: 650px) {
+  .hero { height: 100svh; min-height: 520px; }
+  .brand { width: min(68vw, 300px); }
+  .about { display: block; padding-top: 32px; padding-bottom: 34px; }
+  .about-photo { position: absolute; inset: 0 0 0 25%; margin: 0; min-height: 0; opacity: .48; background-position: center; }
+  .about-copy { max-width: 100%; }
+  .about p { font-size: 11px; max-width: 540px; margin-top: 23px; line-height: 1.58; }
+  .this-is { font-size: clamp(54px, 14vw, 84px); margin-top: 42px; }
+  .portfolio { padding-top: 22px; padding-bottom: 64px; }
+  .portfolio-heading { min-height: 35px; }
+  .portfolio-heading h2 { font-size: clamp(28px, 7vw, 42px); }
+  .video-grid { gap: 7px; }
+  .video-card { min-height: 120px; aspect-ratio: 1.15 / 1; }
+  .play-icon { width: 37px; height: 37px; }
+  .video-name { font-size: 10px; left: 9px; bottom: 9px; }
+  .contact { display: block; padding-top: 35px; padding-bottom: 40px; }
+  .contact h2 { font-size: clamp(34px, 9vw, 55px); }
+  .contact-link { display: inline-block; margin-top: 25px; }
+  .footer { grid-template-columns: 1fr; }
+  .footer p, .footer small { text-align: left; margin: 0; }
+  .footer p { margin-top: -6px; }
+  .back-top { margin-top: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+
+
+/* MAPA TIPOGRÁFICO: cada tipo de texto pode usar uma fonte própria. */
+body { font-family: "OFFSET-Texto", Arial, sans-serif; }
+.section-kicker { font-family: "OFFSET-Detalhe", "OFFSET-Texto", Arial, sans-serif; }
+.about p { font-family: "OFFSET-Texto", Arial, sans-serif; }
+.about p strong { font-family: "OFFSET-Detalhe", "OFFSET-Texto", Arial, sans-serif; }
+.photo-note { font-family: "OFFSET-Detalhe", "OFFSET-Texto", Arial, sans-serif; }
+.this-is { font-family: "OFFSET-Impacto", "OFFSET-Titulo", Impact, sans-serif; }
+.portfolio-heading h2 { font-family: "OFFSET-Impacto", "OFFSET-Titulo", Impact, sans-serif; }
+.portfolio-heading p { font-family: "OFFSET-Texto", Arial, sans-serif; }
+.video-name { font-family: "OFFSET-Titulo", "OFFSET-Texto", Arial, sans-serif; }
+.more-link, .contact-link { font-family: "OFFSET-Botao", "OFFSET-Texto", Arial, sans-serif; }
+.contact h2 { font-family: "OFFSET-Impacto", "OFFSET-Titulo", Impact, sans-serif; }
+.footer-logo { font-family: "OFFSET-Impacto", "OFFSET-Titulo", Impact, sans-serif; }
+.footer p, .back-top, .footer small { font-family: "OFFSET-Rodape", "OFFSET-Texto", Arial, sans-serif; }
