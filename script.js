@@ -13,6 +13,74 @@ const projects = [
 
 const grid = document.querySelector("#video-grid");
 
+/* LANDING PAGE ANIMADO */
+
+(() => {
+  const intro = document.getElementById("offset-intro");
+  const logo = document.getElementById("intro-logo");
+  const title = document.getElementById("intro-title");
+  const scrollHint = intro?.querySelector(".intro-scroll");
+
+  if (!intro || !logo || !title) return;
+
+  let ticking = false;
+
+  function updateIntro() {
+    const rect = intro.getBoundingClientRect();
+    const scrollableDistance = intro.offsetHeight - window.innerHeight;
+
+    if (scrollableDistance <= 0) return;
+
+    // Progresso da animação: 0 no início, 1 no final.
+    const progress = Math.min(
+      1,
+      Math.max(0, -rect.top / scrollableDistance)
+    );
+
+    // A logo some durante o primeiro trecho.
+    const logoProgress = Math.min(1, progress / 0.32);
+    const logoOpacity = 1 - logoProgress;
+
+    logo.style.opacity = logoOpacity;
+    logo.style.transform =
+      `scale(${1 + logoProgress * 0.12})`;
+    logo.style.filter =
+      `blur(${logoProgress * 1}px)`;
+    logo.style.visibility =
+      logoOpacity < 0.01 ? "hidden" : "visible";
+
+    // O texto entra depois que a logo começa a sumir.
+    const titleProgress = Math.min(
+      1,
+      Math.max(0, (progress - 0.2) / 0.3)
+    );
+
+    title.style.opacity = titleProgress;
+    title.style.transform =
+      `translateY(${35 * (1 - titleProgress)}px)`;
+    title.style.visibility =
+      titleProgress < 0.01 ? "hidden" : "visible";
+
+    ticking = false;
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateIntro);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  window.addEventListener("resize", updateIntro);
+
+  updateIntro();
+})();
+
+/* LANDING PAGE ANIMADO */
 
 const photoTrack = document.getElementById("photo-track");
 
@@ -36,58 +104,26 @@ if (photoTrack && photoPrev && photoNext) {
 }
 
 
-const politicalCarousel = document.querySelector(
-  "#political-carousel"
+const politicalVideoTrack = document.getElementById(
+  "political-video-track"
 );
 
-const politicalTrack = document.querySelector(
-  "#political-track"
-);
+const videoPrev = document.querySelector(".video-prev");
+const videoNext = document.querySelector(".video-next");
 
-if (politicalCarousel && politicalTrack) {
-  // Duplica os cartões para criar o movimento contínuo.
-  const originalCards = Array.from(politicalTrack.children);
-
-  originalCards.forEach((card) => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute("aria-hidden", "true");
-    politicalTrack.appendChild(clone);
-  });
-
-  const cards = politicalTrack.querySelectorAll(
-    ".political-card"
-  );
-
-  cards.forEach((card) => {
-    const video = card.querySelector("video");
-
-    if (!video) return;
-
-    // O clique reproduz ou pausa o vídeo dentro do cartão.
-    card.addEventListener("click", () => {
-      if (video.paused) {
-        video.play().catch(() => {
-          console.warn("Não foi possível reproduzir o vídeo.");
-        });
-      } else {
-        video.pause();
-      }
-    });
-
-    // Pausa o vídeo quando o mouse sai do cartão.
-    card.addEventListener("mouseleave", () => {
-      video.pause();
-      video.currentTime = 0;
+if (politicalVideoTrack && videoPrev && videoNext) {
+  videoPrev.addEventListener("click", () => {
+    politicalVideoTrack.scrollBy({
+      left: -politicalVideoTrack.clientWidth * 0.8,
+      behavior: "smooth"
     });
   });
 
-  // Pausa o carrossel ao passar o mouse.
-  politicalCarousel.addEventListener("mouseenter", () => {
-    politicalTrack.style.animationPlayState = "paused";
-  });
-
-  politicalCarousel.addEventListener("mouseleave", () => {
-    politicalTrack.style.animationPlayState = "running";
+  videoNext.addEventListener("click", () => {
+    politicalVideoTrack.scrollBy({
+      left: politicalVideoTrack.clientWidth * 0.8,
+      behavior: "smooth"
+    });
   });
 }
 

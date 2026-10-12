@@ -31,7 +31,7 @@ a { color: inherit; }
 .about { min-height: 620px; padding-top: 50px; padding-bottom: 48px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, .72fr); gap: clamp(22px, 4vw, 60px); position: relative; overflow: hidden; }
 .about-copy { position: relative; z-index: 1; max-width: 690px; }
 .section-kicker { display: flex; align-items: center; gap: 4px; font-size: clamp(16px, 2.3vw, 16px); font-weight: 800; font-style: normal; text-transform: uppercase; white-space: nowrap; }
-.section-kicker i { display: block; height: 14px; flex: 1; min-width: 50px; background: repeating-linear-gradient(105deg, var(--orange) 0 1px, transparent 1px 5px); opacity: .50; }
+.section-kicker i { display: block; height: 12px; flex: 1; min-width: 50px; background: linear-gradient(0deg, var(--orange) 0 2px, transparent 1px 5px); opacity: .50; }
 .about p { font-size: clamp(11px, 1.15vw, 14px); line-height: 1.55; font-weight: 500; text-transform: uppercase; max-width: 690px; margin: 26px 0 0; }
 .about p + p { margin-top: 17px; }
 .about p strong { color: var(--orange); text-decoration: underline; }
@@ -40,18 +40,131 @@ a { color: inherit; }
 .photo-note { position: absolute; bottom: 28px; right: 24px; z-index: 1; font-size: 9px; letter-spacing: .2em; font-weight: 700; opacity: .7; }*/
 .this-is { color: var(--white); font-size: clamp(48px, 8.5vw, 20px); line-height: .9; letter-spacing: .02em; font-weight: 900; font-style: normal; margin: 55px 0 0; }
 .portfolio { padding-top: 20px; padding-bottom: 90px; }
-.portfolio-heading { position: relative; min-height: 33px; display: flex; justify-content: flex-end; align-items: end; margin-top: 2px; margin-bottom: 10px; }
+.portfolio-heading { position: relative; min-height: 33px; display: flex; justify-content: flex-end; align-items: end; margin-top: 5px; margin-bottom: 10px; }
 .portfolio-heading h2 { margin: 0; color: var(--orange); font-size: clamp(30px, 5.3vw, 40px); line-height: .85; letter-spacing: .05em; font-weight: 900; font-style: italic;}
 .portfolio-heading p { display: none; }
 .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .video-card { border: 0; padding: 0; min-height: 170px; aspect-ratio: 1.65 / 1; background: var(--black); color: #FAFAFA; cursor: pointer; position: relative; overflow: hidden; display: grid; place-items: center; text-align: left; text-decoration: none; filter: grayscale(100%) }
-.video-card::before { content: ""; position: absolute; inset: 0; background: var(--card-image, none) center / cover no-repeat; transition: transform .35s ease, opacity .25s ease; opacity: .88; }
+.video-card::before { content: ""; position: absolute; inset: 0; background: var(--card-image, none) center / cover no-repeat; transition: transform .35s ease, opacity .25s ease; opacity: .88 }
 .video-card:hover::before, .video-card:focus-visible::before { transform: scale(1.04); opacity: 1; }
 .play-icon { position: relative; z-index: 1; width: 42px; height: 42px; border: 3px solid currentColor; border-radius: 50%; display: grid; place-items: center; padding-left: 0px; background: rgba(255,75,24,); }
 .play-icon svg { width: 16px; height: 16px; fill: currentColor; }
 .video-name { position: absolute; z-index: 1; left: 15px; right: 15px; bottom: 13px; font-size: 12px; font-weight: 800; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,.55); }
 .portfolio-footer { display: flex; justify-content: center; padding-top: 38px; }
 
+
+/* ================================
+   OFFSET — INTRO ANIMADA
+================================ */
+
+.offset-intro {
+  position: relative;
+  height: 280vh;
+  background: #050505;
+  color: #fff;
+}
+
+.intro-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #050505;
+}
+
+/* Logo inicial */
+
+.intro-logo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8%;
+  will-change: opacity, transform, filter;
+}
+
+.intro-logo img {
+  display: block;
+  width: min(72vw, 620px);
+  max-height: 10vh;
+  object-fit: contain;
+}
+
+/* THIS IS OFFSET */
+
+.intro-title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(35px);
+  will-change: opacity, transform;
+}
+
+.intro-title h1 {
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff;
+  font-family: "OFFSET-Impacto", sans-serif;
+  font-size: clamp(2rem, 5vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+}
+
+@keyframes offset-scroll-line {
+  0%, 100% {
+    transform: scaleY(0.45);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Segunda seção */
+
+.next-section {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* Responsividade */
+
+@media (max-width: 600px) {
+  .intro-logo img {
+    width: 85vw;
+    max-height: 55vh;
+  }
+
+  .intro-title h1 {
+    white-space: normal;
+    font-size: clamp(2.4rem, 11vw, 4.5rem);
+  }
+
+  .intro-scroll {
+    bottom: 25px;
+    font-size: 0.58rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-scroll i {
+    animation: none;
+  }
+}
 
 /* ========================================
    PORTFÓLIO DE FOTOGRAFIAS — OFFSET
@@ -60,7 +173,7 @@ a { color: inherit; }
 .photo-portfolio {
   width: 100%;
   box-sizing: border-box;
-  padding: 70px 5%;
+  padding: 100px 14%;
   background: #050505;
   color: #ffffff;
   overflow: hidden;
@@ -68,51 +181,27 @@ a { color: inherit; }
 
 .photo-header {
   max-width: 1400px;
-  margin: 0 auto 25px;
+  margin: 0 auto -50px;
 }
 
-.photo-header .section-kicker {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.photo-header .section-kicker { display: flex; align-items: center; gap: 4px; font-size: clamp(16px, 2.3vw, 16px); font-weight: 800; font-style: normal; text-transform: uppercase; white-space: nowrap; }
+.photo-header .section-kicker i { display: block; height: 14px; flex: 1; min-width: 50px; opacity: .50; }
 
-  color: #ff4b18;
-  font-family: "OFFSET-Detalhe", Arial, sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-}
-
-.photo-header .section-kicker i {
-  display: block;
-  width: 45px;
-  height: 1px;
-  background: #ff4b18;
-}
-
-.photo-heading {
-  margin-top: 18px;
-}
+.photo-heading { position: relative; min-height: 33px; display: flex; justify-content: flex-end; align-items: end; margin-top: 5px; margin-bottom: 0px; }
 
 .photo-heading h2 {
   margin: 0;
   color: #ff4b18;
 
   font-family: "OFFSET-Impacto", Impact, sans-serif;
-  font-size: clamp(32px, 5vw, 64px);
+  font-style: italic;
+  font-size: clamp(30px, 5.3vw, 40px);
   line-height: 0.95;
   font-weight: 900;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.02em;
 }
 
-.photo-heading p {
-  margin: 14px 0 0;
-  color: #aaaaaa;
-
-  font-family: "OFFSET-Texto", Arial, sans-serif;
-  font-size: 13px;
-  line-height: 1.6;
-}
+.photo-heading p { display: none;}
 
 /* CATÁLOGO HORIZONTAL */
 
@@ -129,7 +218,7 @@ a { color: inherit; }
   overflow-x: auto;
   overflow-y: hidden;
 
-  padding: 4px 2px 12px;
+  padding: 0px 0px 0px;
   scroll-behavior: smooth;
   scrollbar-width: none;
 
@@ -147,7 +236,7 @@ a { color: inherit; }
 .photo-item {
   flex: 0 0 calc((100% - 36px) / 4);
   min-width: 180px;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 9 / 16;
 
   overflow: hidden;
   background: #171717;
@@ -171,7 +260,7 @@ a { color: inherit; }
 /* Efeito visual discreto, sem abrir a imagem */
 
 .photo-item:hover img {
-  transform: scale(1.025);
+  transform: scale(1.010);
 }
 
 /* SETAS LATERAIS */
@@ -188,15 +277,15 @@ a { color: inherit; }
   display: grid;
   place-items: center;
 
-  border: 1px solid #555555;
-  border-radius: 50%;
+  border: 0.5px solid #555555;
+  border-radius: 20%;
 
   background: rgba(5, 5, 5, 0.9);
   color: #ffffff;
 
   font-family: Arial, sans-serif;
   font-size: 32px;
-  line-height: 1;
+  line-height: 0;
 
   cursor: pointer;
 
@@ -224,7 +313,7 @@ a { color: inherit; }
 
 .photo-hint {
   max-width: 1400px;
-  margin: 18px auto 0;
+  margin: 10px auto 0;
 
   color: #666666;
   text-align: center;
@@ -232,7 +321,7 @@ a { color: inherit; }
   font-family: "OFFSET-Detalhe", Arial, sans-serif;
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.02em;
 }
 
 /* TABLETS */
@@ -293,193 +382,195 @@ a { color: inherit; }
 }
 
 
-/* ========================================
-   CONTEÚDO POLÍTICO — OFFSET
-======================================== */
 
-.political-portfolio {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 70px 0;
-  overflow: hidden;
+/* ================================
+   VÍDEOS POLÍTICOS — OFFSET
+================================ */
+
+.political-videos {
+  padding: 90px 14%;
   background: #050505;
   color: #fff;
+  overflow: hidden;
 }
 
-.political-header {
-  padding: 0 5%;
-  margin: 0 auto 25px;
-  max-width: 1400px;
+.video-header {
+  margin-bottom: 35px;
 }
 
-.political-header .section-kicker {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #ff4b18;
-  font-family: "OFFSET-Detalhe", Arial, sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .2em;
-}
+.video-heading { position: relative; min-height: 33px; display: flex; justify-content: flex-end; align-items: end; margin-top: 16px; margin-bottom: 10px; }
 
-.political-header .section-kicker i {
-  width: 45px;
-  height: 1px;
-  background: #ff4b18;
-}
-
-.political-heading {
-  margin-top: 18px;
-}
-
-.political-heading h2 {
+.video-heading h2 {
   margin: 0;
   color: #ff4b18;
+
   font-family: "OFFSET-Impacto", Impact, sans-serif;
-  font-size: clamp(32px, 5vw, 64px);
-  line-height: .95;
+  font-style: italic;
+  font-size: clamp(30px, 5.3vw, 40px);
+  line-height: 0.95;
   font-weight: 900;
+  letter-spacing: 0.02em;
 }
 
-.political-heading p {
-  margin-top: 14px;
-  color: #aaa;
-  font-family: "OFFSET-Texto", Arial, sans-serif;
-  font-size: 13px;
-}
+.video-heading p {display: none;}
 
-/* JANELA DO CARROSSEL */
+/* Catálogo horizontal */
 
-.political-carousel {
-  width: 100%;
-  overflow: hidden;
-}
-
-.political-track {
-  display: flex;
-  width: max-content;
-  gap: 12px;
-  animation: political-scroll 36s linear infinite;
-}
-
-/* PAUSA QUANDO O MOUSE ENTRA NA SEÇÃO */
-
-.political-carousel:hover .political-track,
-.political-carousel:focus-within .political-track {
-  animation-play-state: paused;
-}
-
-/* CARTÕES */
-
-.political-card {
+.video-catalog {
   position: relative;
-  flex: 0 0 clamp(280px, 36vw, 480px);
-  width: clamp(280px, 36vw, 480px);
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: #171717;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-.political-card video {
+.video-track {
+  display: flex;
+  gap: 18px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 5px 2px 12px;
+}
+
+.video-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Cada vídeo mantém o formato 9:16 */
+
+.political-video-item {
+  flex: 0 0 calc((100% - 54px) / 4);
+  min-width: 0;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid #242424;
+  scroll-snap-align: start;
+  transition: border-color 0.25s ease;
+}
+
+.political-video-item:hover {
+  border-color: #ff4b18;
+}
+
+.political-video-item video {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  pointer-events: none;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  background: #080808;
 }
 
-/* CAMADA DE TEXTO */
+/* Setas de navegação */
 
-.political-overlay {
+.video-arrow {
   position: absolute;
-  inset: 0;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 12px;
-  padding: 18px;
-  box-sizing: border-box;
-
-  color: #fff;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, .75),
-    transparent 60%
-  );
-
-  font-family: "OFFSET-Detalhe", Arial, sans-serif;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .08em;
-
-  pointer-events: none;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid #555555;
+  border-radius: 20%;
+  background: #050505;
+  color: #FAFAFA;
+  font-size: 32px;
+  line-height: 0;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
-.political-play {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  flex-shrink: 0;
-  border-radius: 50%;
+.video-arrow:hover {
   background: #ff4b18;
   color: #050505;
-  font-size: 13px;
 }
 
-/* TEXTO INFERIOR */
+.video-prev {
+  left: -20px;
+}
 
-.political-hint {
-  margin: 20px 5% 0;
-  color: #666;
+.video-next {
+  right: -20px;
+}
+
+/* Texto inferior */
+
+.video-hint {
+  max-width: 1400px;
+  margin: 10px auto 0;
+
+  color: #666666;
   text-align: center;
+
   font-family: "OFFSET-Detalhe", Arial, sans-serif;
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: .15em;
+  letter-spacing: 0.02em;
 }
 
-/* MOVIMENTO CONTÍNUO */
+/* Tablets */
 
-@keyframes political-scroll {
-  from {
-    transform: translateX(0);
+@media (max-width: 1024px) {
+  .political-video-item {
+    flex-basis: calc((100% - 36px) / 3);
   }
 
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* CELULAR */
-
-@media (max-width: 600px) {
-  .political-portfolio {
-    padding: 48px 0;
-  }
-
-  .political-card {
-    flex-basis: 82vw;
-    width: 82vw;
-  }
-
-  .political-track {
-    animation-duration: 30s;
-  }
-
-  .political-overlay {
-    padding: 12px;
-    font-size: 9px;
+  .political-videos {
+    padding: 75px 5%;
   }
 }
 
-/* ACESSIBILIDADE */
+/* Celulares */
+
+@media (max-width: 650px) {
+  .political-videos {
+    padding: 60px 7%;
+  }
+
+  .political-video-item {
+    flex-basis: 72%;
+  }
+
+  .video-track {
+    gap: 14px;
+  }
+
+  .video-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 25px;
+  }
+
+  .video-prev {
+    left: -17px;
+  }
+
+  .video-next {
+    right: -17px;
+  }
+
+  .video-heading p {
+    font-size: 0.9rem;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .political-track {
-    animation: none;
+  .video-track {
+    scroll-behavior: auto;
+  }
+
+  .political-video-item,
+  .video-arrow {
+    transition: none;
   }
 }
 

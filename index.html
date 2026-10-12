@@ -12,20 +12,35 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
-  <header class="hero" id="inicio">
-    <a class="brand" href="#inicio" aria-label="OFFSET, início">
-      <img class="brand-image" src="assets/offset-logo.png" alt="OFFSET — Produtora Audiovisual">
-    </a>
-  </header>
+
+<header class="offset-intro" id="offset-intro">
+  <div class="intro-stage">
+
+    <!-- Logo inicial -->
+    <div class="intro-logo" id="intro-logo">
+      <img
+        src="assets/offset-logo.png"
+        alt="OFFSET"
+      >
+    </div>
+
+    <!-- Texto que aparece após a logo -->
+    <div class="intro-title" id="intro-title">
+      <h1>THIS IS<br>OFFSET</h1>
+    </div>
+
+  </div>
+</header>
 
   <main>
+    
     <section class="about section-shell" id="sobre">
       <div class="about-copy">
         <div class="section-kicker"><span>A OFFSET</span><i aria-hidden="true"></i></div>
         <p>Idealizada por Pedro Bezerra, a OFFSET é uma produtora audiovisual especializada na elaboração de conteúdos estratégicos, prezando sempre pela excelência, eficácia e propósito de cada projeto.</p>
         <p>Nossa missão é garantir que todo material entregue não só atenda, mas supere as expectativas, promovendo uma alta conversão e engajamento.</p>
         <p>Sabemos que cada projeto possui necessidades e especificidades únicas. Por isso, nossa equipe oferece um atendimento personalizado e humanizado, adaptando nossas estratégias e produções às demandas específicas do objetivo a ser alcançado.</p>
-        <h1 class="this-is">THIS IS<br>OFFSET</h1>
+        <h1 class="this-is">A 083 DO<br>NORDESTE</h1>
       </div>
 <!--      <div class="about-photo" role="img" aria-label="Fotografia de bastidores ou de um evento produzido pela OFFSET">
         <div class="photo-note">CRIAMOS. CAPTAMOS. CONTAMOS.</div>
@@ -33,7 +48,11 @@
     </section>
 
     <section class="portfolio section-shell" id="portfolio">
-      <div class="section-kicker"><span>PORTFÓLIO</span><i aria-hidden="true"></i></div>
+  <div class="photo-header">
+    <div class="section-kicker">
+      <span>PORTFÓLIO</span>
+      <i></i>
+    </div>
       <div class="portfolio-heading">
         <h2>VIDEOCLIPES</h2>
         <p>Trabalhos selecionados — clique para assistir.</p>
@@ -48,16 +67,14 @@
 
 
 <section class="photo-portfolio" id="fotografias">
-
-  <div class="photo-header">
+  <div class="video-header">
     <div class="section-kicker">
-      <span>PORTFÓLIO</span>
+      <span></span>
       <i></i>
     </div>
 
     <div class="photo-heading">
       <h2>FOTOGRAFIAS</h2>
-      <p>Registros e histórias em imagens.</p>
     </div>
   </div>
 
@@ -120,91 +137,107 @@
 </section>
 
 
-<section class="political-portfolio" id="videos-politicos">
 
-  <div class="political-header">
+<section class="political-videos" id="videos-politicos">
+  <div class="video-header">
     <div class="section-kicker">
-      <span>PORTFÓLIO</span>
+      <span></span>
       <i></i>
     </div>
 
-    <div class="political-heading">
-      <h2>CONTEÚDO POLÍTICO</h2>
-      <p>Campanhas, ideias e histórias em movimento.</p>
+    <div class="video-heading">
+      <h2>VÍDEOS POLÍTICOS</h2>
     </div>
   </div>
 
-  <div class="political-carousel" id="political-carousel">
+  <div class="video-catalog">
+    <button
+      class="video-arrow video-prev"
+      type="button"
+      aria-label="Vídeos anteriores"
+    >&#8249;</button>
 
-    <div class="political-track" id="political-track">
+    <div
+      class="video-track"
+      id="political-video-track"
+      aria-label="Catálogo de vídeos políticos"
+    >
 
-      <div class="political-card">
+      <!-- VÍDEO 01 -->
+      <div class="political-video-item">
         <video
-          src="assets/politico-01.mp4"
-          muted
-          loop
+          controls
           playsinline
           preload="metadata"
-          aria-label="Conteúdo político 01"
-        ></video>
-        <div class="political-overlay">
-          <span>CONTEÚDO POLÍTICO 01</span>
-          <span class="political-play">▶</span>
-        </div>
+          poster="assets/video-capa-01.jpg"
+        >
+          <source src="assets/video-politico-01.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução de vídeos.
+        </video>
       </div>
 
-      <div class="political-card">
+      <!-- VÍDEO 02 -->
+      <div class="political-video-item">
         <video
-          src="assets/politico-02.mp4"
-          muted
-          loop
+          controls
           playsinline
           preload="metadata"
-          aria-label="Conteúdo político 02"
-        ></video>
-        <div class="political-overlay">
-          <span>CONTEÚDO POLÍTICO 02</span>
-          <span class="political-play">▶</span>
-        </div>
+          poster="assets/video-capa-02.jpg"
+        >
+          <source src="assets/video-politico-02.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução de vídeos.
+        </video>
       </div>
 
-      <div class="political-card">
+      <!-- VÍDEO 03 -->
+      <div class="political-video-item">
         <video
-          src="assets/politico-03.mp4"
-          muted
-          loop
+          controls
           playsinline
           preload="metadata"
-          aria-label="Conteúdo político 03"
-        ></video>
-        <div class="political-overlay">
-          <span>CONTEÚDO POLÍTICO 03</span>
-          <span class="political-play">▶</span>
-        </div>
+          poster="assets/video-capa-03.jpg"
+        >
+          <source src="assets/video-politico-03.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução de vídeos.
+        </video>
       </div>
 
-      <div class="political-card">
+      <!-- VÍDEO 04 -->
+      <div class="political-video-item">
         <video
-          src="assets/politico-04.mp4"
-          muted
-          loop
+          controls
           playsinline
           preload="metadata"
-          aria-label="Conteúdo político 04"
-        ></video>
-        <div class="political-overlay">
-          <span>CONTEÚDO POLÍTICO 04</span>
-          <span class="political-play">▶</span>
-        </div>
+          poster="assets/video-capa-04.jpg"
+        >
+          <source src="assets/video-politico-04.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução de vídeos.
+        </video>
+      </div>
+
+      <!-- VÍDEO 05 -->
+      <div class="political-video-item">
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          poster="assets/video-capa-05.jpg"
+        >
+          <source src="assets/video-politico-05.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução de vídeos.
+        </video>
       </div>
 
     </div>
+
+    <button
+      class="video-arrow video-next"
+      type="button"
+      aria-label="Próximos vídeos"
+    >&#8250;</button>
   </div>
 
-  <p class="political-hint">
-    PASSE O MOUSE PARA PAUSAR O CARROSSEL
-  </p>
-
+  <p class="video-hint">EXPLORE NOSSO PORTFÓLIO AUDIOVISUAL</p>
 </section>
 
     <section class="contact section-shell" id="contato">
