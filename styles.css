@@ -24,7 +24,7 @@ a { color: inherit; }
   min-height: min(100svh, 820px); height: 71vw; max-height: 900px;
   background: var(--black); display: grid; place-items: center; position: relative;
 }
-.brand { display: block; width: clamp(190px, 100vw, 500px); transform: translateY(100%); }
+.brand { display: block; width: clamp(190px, 100vw, 500px); transform: translateY(0%); }
 .brand-image { display: block; width: 100%; height: auto; }
 
 .section-shell { padding-left: var(--page-pad); padding-right: var(--page-pad); }
@@ -35,26 +35,26 @@ a { color: inherit; }
 .about p { font-size: clamp(11px, 1.15vw, 14px); line-height: 1.55; font-weight: 500; text-transform: uppercase; max-width: 690px; margin: 26px 0 0; }
 .about p + p { margin-top: 17px; }
 .about p strong { color: var(--orange); text-decoration: underline; }
-.about-photo { min-height: 440px; align-self: stretch; margin: -50px calc(var(--page-pad) * -1) -48px 0; position: relative; background: linear-gradient(90deg, var(--black) 10%, rgba(5,5,5,.35) 100%, rgba(5,5,5,.1) 100%), linear-gradient(0deg, rgba(5,5,5,.55), rgba(5,5,5,.05)), url("assets/bastidores.jpg") center / cover no-repeat, #21100a; }
+/*.about-photo { min-height: 440px; align-self: stretch; margin: -50px calc(var(--page-pad) * -1) -48px 0; position: relative; background: linear-gradient(90deg, var(--black) 10%, rgba(5,5,5,.35) 100%, rgba(5,5,5,.1) 100%), linear-gradient(0deg, rgba(5,5,5,.55), rgba(5,5,5,.05)), url("assets/bastidores.jpg") center / cover no-repeat, #21100a; }
 .about-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(255,75,24,.18), transparent 65%); mix-blend-mode: screen; pointer-events: none; }
-.photo-note { position: absolute; bottom: 28px; right: 24px; z-index: 1; font-size: 9px; letter-spacing: .2em; font-weight: 700; opacity: .7; }
+.photo-note { position: absolute; bottom: 28px; right: 24px; z-index: 1; font-size: 9px; letter-spacing: .2em; font-weight: 700; opacity: .7; }*/
 .this-is { color: var(--white); font-size: clamp(48px, 8.5vw, 20px); line-height: .9; letter-spacing: .02em; font-weight: 900; font-style: normal; margin: 55px 0 0; }
 .portfolio { padding-top: 20px; padding-bottom: 90px; }
 .portfolio-heading { position: relative; min-height: 33px; display: flex; justify-content: flex-end; align-items: end; margin-top: 2px; }
-.portfolio-heading h2 { margin: 0; color: var(--orange); font-size: clamp(30px, 5.3vw, 40px); line-height: .85; letter-spacing: -.005em; font-weight: 900; font-style: normal; }
+.portfolio-heading h2 { margin: 0; color: var(--orange); font-size: clamp(30px, 5.3vw, 40px); line-height: .85; letter-spacing: .05em; font-weight: 900; font-style: italic;}
 .portfolio-heading p { display: none; }
 .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.video-card { border: 0; padding: 0; min-height: 170px; aspect-ratio: 1.65 / 1; background: var(--orange); color: #FAFAFA; cursor: pointer; position: relative; overflow: hidden; display: grid; place-items: center; text-align: left; text-decoration: none; }
+.video-card { border: 0; padding: 0; min-height: 170px; aspect-ratio: 1.65 / 1; background: var(--orange); color: #FAFAFA; cursor: pointer; position: relative; overflow: hidden; display: grid; place-items: center; text-align: left; text-decoration: none; filter: grayscale(100%) }
 .video-card::before { content: ""; position: absolute; inset: 0; background: var(--card-image, none) center / cover no-repeat; transition: transform .35s ease, opacity .25s ease; opacity: .88; }
 .video-card:hover::before, .video-card:focus-visible::before { transform: scale(1.04); opacity: 1; }
-.play-icon { position: relative; z-index: 1; width: 42px; height: 42px; border: 3px solid currentColor; border-radius: 50%; display: grid; place-items: center; padding-left: 3px; background: rgba(255,75,24,); }
+.play-icon { position: relative; z-index: 1; width: 42px; height: 42px; border: 3px solid currentColor; border-radius: 50%; display: grid; place-items: center; padding-left: 0px; background: rgba(255,75,24,); }
 .play-icon svg { width: 16px; height: 16px; fill: currentColor; }
 .video-name { position: absolute; z-index: 1; left: 15px; right: 15px; bottom: 13px; font-size: 12px; font-weight: 800; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,.55); }
 .portfolio-footer { display: flex; justify-content: center; padding-top: 38px; }
 .more-link, .contact-link { text-decoration: none; background: var(--orange-dark); padding: 12px 18px; border-radius: 8px; font-size: 11px; font-weight: 700; transition: background .2s ease, transform .2s ease; }
-.more-link:hover, .contact-link:hover { background: var(--orange); color: #000; transform: translateY(-2px); }
+.more-link:hover, .contact-link:hover { background: var(--orange); color: #FAFAFA; transform: translateY(-2px); }
 .contact { border-top: 1px solid #242424; padding-top: 50px; padding-bottom: 58px; display: flex; align-items: end; justify-content: space-between; gap: 24px; }
-.contact h2 { font-size: clamp(40px, 6vw, 20px); line-height: .9; letter-spacing: .02em; margin: 28px 0 0; font-weight: 900; font-style: normal; }
+.contact h2 { font-size: clamp(40px, 6vw, 20px); line-height: .9; letter-spacing: 0.05em; margin: 28px 0 0; font-weight: 900; font-style: normal; }
 .contact-link { flex-shrink: 0; }
 .footer { padding: 25px var(--page-pad) 20px; border-top: 1px solid #242424; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: center; }
 .footer-logo { font-size: 30px; font-weight: 900; letter-spacing: -.08em; text-decoration: none; }
@@ -68,7 +68,7 @@ a { color: inherit; }
   .hero { height: 100svh; min-height: 520px; }
   .brand { width: min(68vw, 300px); }
   .about { display: block; padding-top: 32px; padding-bottom: 34px; }
-  .about-photo { position: absolute; inset: 0 0 0 25%; margin: 0; min-height: 0; opacity: .48; background-position: center; }
+  /*.about-photo { position: absolute; inset: 0 0 0 25%; margin: 0; min-height: 0; opacity: .48; background-position: center; }*/
   .about-copy { max-width: 100%; }
   .about p { font-size: 11px; max-width: 540px; margin-top: 23px; line-height: 1.58; }
   .this-is { font-size: clamp(54px, 14vw, 84px); margin-top: 42px; }
@@ -95,7 +95,7 @@ body { font-family: "OFFSET-Texto", Arial, sans-serif; }
 .section-kicker { font-family: "OFFSET-Detalhe", "OFFSET-Texto", Arial, sans-serif; }
 .about p { font-family: "OFFSET-Texto", Arial, sans-serif; }
 .about p strong { font-family: "OFFSET-Detalhe", "OFFSET-Texto", Arial, sans-serif; }
-.photo-note { font-family: "OFFSET-Detalhe", "OFFSET-Texto", Arial, sans-serif; }
+/*.photo-note { font-family: "OFFSET-Detalhe", "OFFSET-Texto", Arial, sans-serif; }*/
 .this-is { font-family: "OFFSET-Impacto", "OFFSET-Titulo", Impact, sans-serif; }
 .portfolio-heading h2 { font-family: "OFFSET-Impacto", "OFFSET-Titulo", Impact, sans-serif; }
 .portfolio-heading p { font-family: "OFFSET-Texto", Arial, sans-serif; }
