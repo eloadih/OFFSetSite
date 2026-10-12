@@ -51,6 +51,438 @@ a { color: inherit; }
 .play-icon svg { width: 16px; height: 16px; fill: currentColor; }
 .video-name { position: absolute; z-index: 1; left: 15px; right: 15px; bottom: 13px; font-size: 12px; font-weight: 800; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,.55); }
 .portfolio-footer { display: flex; justify-content: center; padding-top: 38px; }
+
+
+/* ========================================
+   PORTFÓLIO DE FOTOGRAFIAS — OFFSET
+======================================== */
+
+.photo-portfolio {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 70px 5%;
+  background: #050505;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.photo-header {
+  max-width: 1400px;
+  margin: 0 auto 25px;
+}
+
+.photo-header .section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #ff4b18;
+  font-family: "OFFSET-Detalhe", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.photo-header .section-kicker i {
+  display: block;
+  width: 45px;
+  height: 1px;
+  background: #ff4b18;
+}
+
+.photo-heading {
+  margin-top: 18px;
+}
+
+.photo-heading h2 {
+  margin: 0;
+  color: #ff4b18;
+
+  font-family: "OFFSET-Impacto", Impact, sans-serif;
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.photo-heading p {
+  margin: 14px 0 0;
+  color: #aaaaaa;
+
+  font-family: "OFFSET-Texto", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* CATÁLOGO HORIZONTAL */
+
+.photo-catalog {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.photo-track {
+  display: flex;
+  gap: 12px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 4px 2px 12px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+
+  /* Impede a seleção acidental das imagens */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.photo-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARTÕES NÃO CLICÁVEIS */
+
+.photo-item {
+  flex: 0 0 calc((100% - 36px) / 4);
+  min-width: 180px;
+  aspect-ratio: 4 / 5;
+
+  overflow: hidden;
+  background: #171717;
+}
+
+.photo-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+
+  transition: transform 0.35s ease;
+}
+
+/* Efeito visual discreto, sem abrir a imagem */
+
+.photo-item:hover img {
+  transform: scale(1.025);
+}
+
+/* SETAS LATERAIS */
+
+.photo-arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #555555;
+  border-radius: 50%;
+
+  background: rgba(5, 5, 5, 0.9);
+  color: #ffffff;
+
+  font-family: Arial, sans-serif;
+  font-size: 32px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.photo-arrow:hover {
+  background: #ff4b18;
+  color: #050505;
+  border-color: #ff4b18;
+}
+
+.photo-prev {
+  left: -18px;
+}
+
+.photo-next {
+  right: -18px;
+}
+
+/* TEXTO INFERIOR */
+
+.photo-hint {
+  max-width: 1400px;
+  margin: 18px auto 0;
+
+  color: #666666;
+  text-align: center;
+
+  font-family: "OFFSET-Detalhe", Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+  .photo-item {
+    flex-basis: calc((100% - 24px) / 3);
+  }
+
+  .photo-prev {
+    left: -10px;
+  }
+
+  .photo-next {
+    right: -10px;
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+  .photo-portfolio {
+    padding: 48px 6%;
+  }
+
+  .photo-item {
+    flex: 0 0 72%;
+    min-width: 0;
+  }
+
+  .photo-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 27px;
+  }
+
+  .photo-prev {
+    left: -10px;
+  }
+
+  .photo-next {
+    right: -10px;
+  }
+
+  .photo-hint {
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-track {
+    scroll-behavior: auto;
+  }
+
+  .photo-item img {
+    transition: none;
+  }
+}
+
+
+/* ========================================
+   CONTEÚDO POLÍTICO — OFFSET
+======================================== */
+
+.political-portfolio {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 70px 0;
+  overflow: hidden;
+  background: #050505;
+  color: #fff;
+}
+
+.political-header {
+  padding: 0 5%;
+  margin: 0 auto 25px;
+  max-width: 1400px;
+}
+
+.political-header .section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ff4b18;
+  font-family: "OFFSET-Detalhe", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+}
+
+.political-header .section-kicker i {
+  width: 45px;
+  height: 1px;
+  background: #ff4b18;
+}
+
+.political-heading {
+  margin-top: 18px;
+}
+
+.political-heading h2 {
+  margin: 0;
+  color: #ff4b18;
+  font-family: "OFFSET-Impacto", Impact, sans-serif;
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: .95;
+  font-weight: 900;
+}
+
+.political-heading p {
+  margin-top: 14px;
+  color: #aaa;
+  font-family: "OFFSET-Texto", Arial, sans-serif;
+  font-size: 13px;
+}
+
+/* JANELA DO CARROSSEL */
+
+.political-carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.political-track {
+  display: flex;
+  width: max-content;
+  gap: 12px;
+  animation: political-scroll 36s linear infinite;
+}
+
+/* PAUSA QUANDO O MOUSE ENTRA NA SEÇÃO */
+
+.political-carousel:hover .political-track,
+.political-carousel:focus-within .political-track {
+  animation-play-state: paused;
+}
+
+/* CARTÕES */
+
+.political-card {
+  position: relative;
+  flex: 0 0 clamp(280px, 36vw, 480px);
+  width: clamp(280px, 36vw, 480px);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #171717;
+  cursor: pointer;
+}
+
+.political-card video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* CAMADA DE TEXTO */
+
+.political-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 18px;
+  box-sizing: border-box;
+
+  color: #fff;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, .75),
+    transparent 60%
+  );
+
+  font-family: "OFFSET-Detalhe", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+
+  pointer-events: none;
+}
+
+.political-play {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #ff4b18;
+  color: #050505;
+  font-size: 13px;
+}
+
+/* TEXTO INFERIOR */
+
+.political-hint {
+  margin: 20px 5% 0;
+  color: #666;
+  text-align: center;
+  font-family: "OFFSET-Detalhe", Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+/* MOVIMENTO CONTÍNUO */
+
+@keyframes political-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+  .political-portfolio {
+    padding: 48px 0;
+  }
+
+  .political-card {
+    flex-basis: 82vw;
+    width: 82vw;
+  }
+
+  .political-track {
+    animation-duration: 30s;
+  }
+
+  .political-overlay {
+    padding: 12px;
+    font-size: 9px;
+  }
+}
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+  .political-track {
+    animation: none;
+  }
+}
+
 .more-link, .contact-link { text-decoration: none; background: var(--orange-dark); padding: 12px 18px; border-radius: 8px; font-size: 11px; font-weight: 700; transition: background .2s ease, transform .2s ease; }
 .more-link:hover, .contact-link:hover { background: var(--orange); color: #FAFAFA; transform: translateY(-2px); }
 .contact { padding-top: 0px; padding-bottom: 58px; display: flex; align-items: end; justify-content: space-between; gap: 24px; }

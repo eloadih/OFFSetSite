@@ -13,6 +13,84 @@ const projects = [
 
 const grid = document.querySelector("#video-grid");
 
+
+const photoTrack = document.getElementById("photo-track");
+
+const photoPrev = document.querySelector(".photo-prev");
+const photoNext = document.querySelector(".photo-next");
+
+if (photoTrack && photoPrev && photoNext) {
+  photoPrev.addEventListener("click", () => {
+    photoTrack.scrollBy({
+      left: -photoTrack.clientWidth * 0.8,
+      behavior: "smooth"
+    });
+  });
+
+  photoNext.addEventListener("click", () => {
+    photoTrack.scrollBy({
+      left: photoTrack.clientWidth * 0.8,
+      behavior: "smooth"
+    });
+  });
+}
+
+
+const politicalCarousel = document.querySelector(
+  "#political-carousel"
+);
+
+const politicalTrack = document.querySelector(
+  "#political-track"
+);
+
+if (politicalCarousel && politicalTrack) {
+  // Duplica os cartões para criar o movimento contínuo.
+  const originalCards = Array.from(politicalTrack.children);
+
+  originalCards.forEach((card) => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    politicalTrack.appendChild(clone);
+  });
+
+  const cards = politicalTrack.querySelectorAll(
+    ".political-card"
+  );
+
+  cards.forEach((card) => {
+    const video = card.querySelector("video");
+
+    if (!video) return;
+
+    // O clique reproduz ou pausa o vídeo dentro do cartão.
+    card.addEventListener("click", () => {
+      if (video.paused) {
+        video.play().catch(() => {
+          console.warn("Não foi possível reproduzir o vídeo.");
+        });
+      } else {
+        video.pause();
+      }
+    });
+
+    // Pausa o vídeo quando o mouse sai do cartão.
+    card.addEventListener("mouseleave", () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+
+  // Pausa o carrossel ao passar o mouse.
+  politicalCarousel.addEventListener("mouseenter", () => {
+    politicalTrack.style.animationPlayState = "paused";
+  });
+
+  politicalCarousel.addEventListener("mouseleave", () => {
+    politicalTrack.style.animationPlayState = "running";
+  });
+}
+
 function isValidYouTubeUrl(value) {
   try {
     const url = new URL(value);
