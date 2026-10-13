@@ -13,6 +13,8 @@ const projects = [
 document.addEventListener("DOMContentLoaded", () => {
   initIntroAnimation();
   initHorizontalCatalogs();
+  initSectionGifs();
+  initIntroScrollHint();
   renderProjects();
   setCurrentYear();
 });
@@ -79,6 +81,51 @@ function bindCatalog(trackSelector, previousSelector, nextSelector) {
 
   previous.addEventListener("click", () => track.scrollBy({ left: -amount(), behavior: behavior() }));
   next.addEventListener("click", () => track.scrollBy({ left: amount(), behavior: behavior() }));
+}
+
+/* Carrega os GIFs quando a seção entra na tela e reinicia ao sair dela. */
+function initSectionGifs() {
+  const sections = [
+    document.getElementById("videos-politicos"),
+    document.getElementById("after")
+  ].filter(Boolean);
+
+  if (!("IntersectionObserver" in window)) {
+    document.querySelectorAll("img[data-gif]").forEach((image) => {
+      image.src = image.dataset.gif;
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      entry.target.querySelectorAll("img[data-gif]").forEach((image) => {
+        if (entry.isIntersecting) {
+          if (!image.getAttribute("src")) image.src = image.dataset.gif;
+        } else if (image.hasAttribute("src")) {
+          image.removeAttribute("src");
+        }
+      });
+    });
+  }, { threshold: 0.12, rootMargin: "80px 0px" });
+
+  sections.forEach((section) => observer.observe(section));
+}
+
+/* Esconde a instrução de rolagem com fade quando A OFFSET aparece. */
+function initIntroScrollHint() {
+  const hint = document.querySelector(".intro-scroll");
+  const about = document.getElementById("sobre");
+  if (!hint || !about || !("IntersectionObserver" in window)) return;
+
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      hint.classList.add("is-hidden");
+      observer.disconnect();
+    }
+  }, { threshold: 0.08 });
+
+  observer.observe(about);
 }
 
 /* Renderiza os cartões de videoclipes a partir do array projects. */

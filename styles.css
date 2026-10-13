@@ -190,11 +190,21 @@ a:focus-visible {
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
-  color: var(--muted);
+  color: var(--white);
   font-family: "OFFSET-Detalhe", Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.20em;
   transform: translateX(-50%);
+}
+
+.intro-scroll {
+  opacity: 1;
+  transition: opacity 650ms ease, visibility 650ms ease;
+}
+
+.intro-scroll.is-hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* =========================================================
@@ -207,6 +217,14 @@ a:focus-visible {
   padding-top: clamp(3rem, 7vw, 6rem);
   padding-bottom: clamp(3rem, 7vw, 6rem);
   overflow: hidden;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 30%);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .about-copy {
@@ -384,7 +402,7 @@ a:focus-visible {
 }
 
 /* =========================================================
-   CATÁLOGO DE FOTOGRAFIAS
+   FOTOGRAFIAS
    ========================================================= */
 
 .photo-portfolio,
@@ -437,6 +455,10 @@ a:focus-visible {
 .photo-track::-webkit-scrollbar,
 .video-track::-webkit-scrollbar {
   display: none;
+}
+
+.gif-track img:not([src]) {
+  opacity: 0;
 }
 
 .photo-item {
@@ -513,7 +535,7 @@ a:focus-visible {
 }
 
 /* =========================================================
-   VÍDEOS POLÍTICOS
+   GIFS — CONTEÚDOS POLÍTICOS
    ========================================================= */
 
 .video-heading {
@@ -541,10 +563,11 @@ a:focus-visible {
   border-color: var(--orange);
 }
 
-.political-video-item video {
+.political-video-item img,
+.after-video-item img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   background: #080808;
 }
 
@@ -555,7 +578,7 @@ a:focus-visible {
 }
 
 /* =========================================================
-   AFTERMOVIES
+   GIFS — AFTERMOVIES
    ========================================================= */
 
 .video-heading2 {
@@ -583,12 +606,6 @@ a:focus-visible {
   border-color: var(--orange);
 }
 
-.after-video-item video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #080808;
-}
 
 .after-footer {
   display: flex;
@@ -715,7 +732,7 @@ a:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.6rem;
+  gap: 0rem;
   padding-top: 1.5rem;
 }
 
@@ -794,6 +811,17 @@ a:focus-visible {
   .intro-scroll {
     bottom: 1.1rem;
     font-size: 0.55rem;
+  }
+
+  .about-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .about-photo-frame {
+    width: min(72%, 300px);
+    max-width: 100%;
+    justify-self: center;
   }
 
   .about {
@@ -897,7 +925,7 @@ a:focus-visible {
   }
 
   .footer {
-    padding-top: 2.25=rem;
+    padding-top: 2.25rem;
   }
 
   .footer-container {
@@ -951,37 +979,3 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
-
-/*.about-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 30%);
-  align-items: start;
-  gap: clamp(2rem, 5vw, 5rem);
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
-}
-
-.about-copy {
-  min-width: 0;
-  max-width: 850px;
-}
-
-.about-photo-frame {
-  width: 100%;
-  max-width: 360px;
-  aspect-ratio: 9 / 16;
-  justify-self: end;
-  margin: 0;
-  padding: 0.45rem;
-  border: 1px solid var(--orange);
-  background: var(--black);
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.about-photo-frame img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}*/
